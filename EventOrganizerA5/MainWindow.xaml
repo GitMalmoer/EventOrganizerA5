@@ -1,0 +1,122 @@
+﻿<Window x:Class="EventOrganizerA5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EventOrganizerA5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <GroupBox Header="New event" Height="100" Margin="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <Label Content="Event Title" Grid.Column="0"/>
+                        <Label Content="Cost per participant" Grid.Column="0"/>
+                        <Label Content="Fee per participant" Grid.Column="0"/>
+
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <TextBox x:Name="txtTitle" Grid.Column="1" Margin="5"/>
+                        <TextBox x:Name="txtCost" Grid.Column="1" Margin="5"/>
+                        <TextBox x:Name="txtFee" Grid.Column="1" Margin="5 3 5 0"/>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox x:Name="grpAddParticipant" Header="Add participant" Height="230" Margin="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <Label Content="First Name"/>
+                        <Label Content="Last Name"/>
+                        <Label Content="Street"/>
+                        <Label x:Name="lblCity" Content="City"/>
+                        <Label Content="ZipCode" Margin="0 5 0 0"/>
+                        <Label Content="Country" Margin="0 5 0 0"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
+                        <TextBox x:Name="txtFirstName" Margin="5"/>
+                        <TextBox x:Name="txtLastName" Margin="5"/>
+                        <TextBox x:Name="txtStreet" Margin="5"/>
+                        <TextBox x:Name="txtCity" Margin="5"/>
+                        <TextBox x:Name="txtZipCode" Margin="5"/>
+                        <ComboBox x:Name="cmbCountries" Margin="5"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.ColumnSpan="2" VerticalAlignment="Bottom" >
+                        <Button x:Name="btnAdd" Height="20"  Content="Add" Grid.ColumnSpan="2" Margin="10" Click="btnAdd_Click"/>
+
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+        </StackPanel>
+
+        <!-- Grid with listbox--> 
+        <StackPanel Grid.Column="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Participant" Grid.Column="0"/>
+                <Label Content="Adress" Grid.Column="1"/>
+            </Grid>
+            <Grid>
+
+                <ListBox x:Name="lstResults" Height="200" Margin="10" SelectionChanged="lstResults_SelectionChanged"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnChange" Content="Change" Grid.Column="0" Margin="10" Width="100" Click="btnChange_Click"/>
+                <Button x:Name="btnDelete" Content="Delete" Grid.Column="1" Margin="10" Width="100" Click="btnDelete_Click"/>
+            </Grid>
+            <Grid>
+                <GroupBox Header="Event Economy" Height="150" Width="300">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                        <Label Content="Number of participants"/>
+                         <Label Content="Total Cost"/>
+                         <Label Content="Total Fees"/>
+                         <Label Content="Surplus Deficit"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" >
+                            <TextBox x:Name="txtNumberOfParticipants" Margin="5"/>
+                            <TextBox x:Name="txtTotalCost" Margin="5"/>
+                            <TextBox x:Name="txtTotalFees" Margin="5"/>
+                            <TextBox x:Name="txtSurplus" Margin="5"/>
+
+                        </StackPanel>
+                        
+                    </Grid>
+                </GroupBox>
+            </Grid>
+
+
+        </StackPanel>
+        
+        
+        
+        
+        
+    </Grid>
+</Window>
