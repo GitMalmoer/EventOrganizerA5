@@ -12,7 +12,7 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            <GroupBox Header="New event" Height="100" Margin="10">
+            <GroupBox Header="New event" Height="150" Margin="10">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -28,8 +28,13 @@
                         <TextBox x:Name="txtTitle" Grid.Column="1" Margin="5"/>
                         <TextBox x:Name="txtCost" Grid.Column="1" Margin="5"/>
                         <TextBox x:Name="txtFee" Grid.Column="1" Margin="5 3 5 0"/>
+                    </StackPanel >
+
+                    <StackPanel Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="5">
+                        <Button x:Name="btnCreateEvent" Content="Create Event" Click="btnCreateEvent_Click" />
                     </StackPanel>
                 </Grid>
+
             </GroupBox>
 
             <GroupBox x:Name="grpAddParticipant" Header="Add participant" Height="230" Margin="10">
@@ -64,19 +69,25 @@
             </GroupBox>
         </StackPanel>
 
-        <!-- Grid with listbox--> 
+        <!-- Grid with listbox-->
         <StackPanel Grid.Column="1">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Participant" Grid.Column="0"/>
                 <Label Content="Adress" Grid.Column="1"/>
+
             </Grid>
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="501*"/>
+                    <ColumnDefinition Width="32*"/>
+                </Grid.ColumnDefinitions>
 
-                <ListBox x:Name="lstResults" Height="200" Margin="10" SelectionChanged="lstResults_SelectionChanged"/>
+                <ListBox x:Name="lstResults" Height="200" Margin="10,10,10,10" Grid.ColumnSpan="2" SelectionChanged="lstResults_SelectionChanged"/>
             </Grid>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -94,10 +105,10 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0">
-                        <Label Content="Number of participants"/>
-                         <Label Content="Total Cost"/>
-                         <Label Content="Total Fees"/>
-                         <Label Content="Surplus Deficit"/>
+                            <Label Content="Number of participants"/>
+                            <Label Content="Total Cost"/>
+                            <Label Content="Total Fees"/>
+                            <Label Content="Surplus Deficit"/>
                         </StackPanel>
                         <StackPanel Grid.Column="1" >
                             <TextBox x:Name="txtNumberOfParticipants" Margin="5"/>
@@ -106,17 +117,17 @@
                             <TextBox x:Name="txtSurplus" Margin="5"/>
 
                         </StackPanel>
-                        
+
                     </Grid>
                 </GroupBox>
             </Grid>
 
 
         </StackPanel>
-        
-        
-        
-        
-        
+
+
+
+
+
     </Grid>
 </Window>

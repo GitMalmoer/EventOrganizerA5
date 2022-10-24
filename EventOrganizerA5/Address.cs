@@ -58,6 +58,12 @@ namespace EventOrganizerA5
             return countryStr;
         }
 
+        public bool Validate()
+        {
+            bool cityOk = !string.IsNullOrEmpty(_city);
+            return cityOk;
+        }
+
         public override string ToString()
         {
             string strOut = string.Format("{0} {1} {2} {3}", _street, _city ,ZipCode, CountryToString());

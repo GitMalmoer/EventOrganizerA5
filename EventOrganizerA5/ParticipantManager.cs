@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace EventOrganizerA5
 {
     public class ParticipantManager
     {
         List<Participant> participants;
-        private int selectedIndex = -1;
 
 
         public ParticipantManager()
@@ -17,8 +17,6 @@ namespace EventOrganizerA5
             participants = new List<Participant>();
         }
 
-        public int SelectedIndex
-            { get { return selectedIndex; } set { selectedIndex = value; } }
 
         public void AddParticipant(Participant participant)
         {
@@ -39,31 +37,37 @@ namespace EventOrganizerA5
         {
             if(CheckIndex(index))
             {
-                participants.RemoveAt(index);
+            participants.RemoveAt(index);
             }
+            else
+                MessageBox.Show( "Wrong selection");
+
         }
 
         public void ChangeParticipantAtIndex(Participant participant ,int index) 
         {
-           // if (CheckIndex(index))
-           // {
+            if (CheckIndex(index))
+            {
                 participants[index] = participant;
-            //}
+            }
+            else
+            {
+                MessageBox.Show("Wrong selected item");
+            }
         }
 
-        public int Count()
+        public int Count
         {
-            int count = participants.Count;
-            return count;
-       }
+            get { return participants.Count; }
+        }
         private bool CheckIndex(int index)
         {
-            if (index == null || index < 0 || index > Count())
+            if (index < 0 || index > Count || index == -1)
                 return false;
             else
                 return true;
         }
 
-        
+
     }
 }
