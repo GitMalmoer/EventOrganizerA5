@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Packaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +12,12 @@ namespace EventOrganizerA5
         private string _firstName;
         private string _lastName;
         private Address _address;
+        private string _fullName;
 
         public Participant()
         {
             _address = new Address();
+            
         }
         public Participant(Address address):this(string.Empty,string.Empty, address)
         {
@@ -24,6 +27,7 @@ namespace EventOrganizerA5
         {
             _firstName = firstName;
             _lastName = lastName;
+            _fullName = _firstName ;
 
             if (address != null)
                 _address = address;
@@ -34,11 +38,11 @@ namespace EventOrganizerA5
         public string FirstName
         {
             get { return _firstName; }
-            set { _firstName = value; }
+            set { _firstName = value;}
         }
         public string LastName
         {
-            set { _lastName = value; }
+            set { _lastName = value;}
             get { return _lastName; }
         }
         public Address Address
@@ -47,9 +51,19 @@ namespace EventOrganizerA5
             set { _address = value; }
         }
 
+        public string FullName
+        {
+            get { return _fullName; }
+            set
+            {
+                _fullName = value;
+            }
+        }
+
         public override string ToString()
         {
-            string strOut = string.Format("{0} {1} {2,80}", _firstName, _lastName, _address);
+            FullName =  _lastName.ToUpper() + " " + _firstName;
+            string strOut = string.Format("{0} {1,80}", FullName, _address);
             return strOut;
         }
 

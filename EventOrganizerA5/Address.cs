@@ -55,7 +55,18 @@ namespace EventOrganizerA5
         public string CountryToString()
         {
             string countryStr = _country.ToString();
-            return countryStr;
+            string countryStrChanged;
+
+            if (countryStr.Contains("_"))
+            {
+                 countryStrChanged = countryStr.Replace("_", " ");
+                 return countryStrChanged;
+            }
+            else
+            {
+                return countryStr;
+            }
+            
         }
 
         public bool Validate()
